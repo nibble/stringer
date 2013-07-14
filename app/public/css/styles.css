@@ -109,7 +109,7 @@ li.story, li.feed {
   -webkit-transform: rotate(0);
   -moz-transform: rotate(0);
   transform: rotate(0);
-  color: #484948;
+  color: #181918;
 }
 
 li.story .story-body a, .setup a, .footer-links a {
@@ -214,7 +214,7 @@ li.story .icon-star-empty {
 
 li.story .story-body h1 a {
   border: none;
-  color: #484948;
+  color: #181918;
 }
 
 li.story .story-body h1 a:hover {
