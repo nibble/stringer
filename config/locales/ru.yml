@@ -43,13 +43,13 @@ ru:
         password_confirmation: Подтвердить
       flash:
         passwords_dont_match: Эй, Ваше подтверждение пароля не совпадает с паролем. Попробуйте еще раз.
-      subtitle: ! 'Существует только один пользователь: ВЫ.'
+      subtitle: 'Существует только один пользователь: ВЫ.'
       title: Stringer это
   flash:
     cookies_required: Ну, это неудобно. Cookies необходимы, чтобы приложение работало корректно.
     js_required: Ну, это неудобно. Javascript необходим, чтобы приложение работало корректно.
   import:
-    description: ! '%{link} фиды из Google Reader и импортировать их.'
+    description: '%{link} фиды из Google Reader и импортировать их.'
     export: Экспортировать
     fields:
       import: Импортировать
@@ -60,6 +60,7 @@ ru:
     back_to_work: Возвращайтесь к работе, бездельник!
     export: Экспортировать
     hey: Привет!
+    import: 
     logout: Выйти
     support: Помощь
     title: stringer | your rss buddy
@@ -69,8 +70,8 @@ ru:
       archived_stories: Архив историй
       mark_all: Отметить всё как прочитанное
       refresh: Обновить
-      view_feeds: Посмотреть фид каналы
       starred_stories: Избранные истории
+      view_feeds: Посмотреть фид каналы
     feed:
       last_fetched:
         never: Никогда
@@ -87,18 +88,18 @@ ru:
       starred_stories: Избранные истории
     shortcuts:
       keys:
+        a: 
         jk: Перейти на следующую/предыдущую историю
+        left: Предыдущая страница
         m: Пометить как прочитанное/непрочитанное
         np: Вниз / Вверх
         oenter: Открыть/Закрыть историю
         or: или
         r: Обновить
+        right: Следующая страница
+        s: Отметить как избранное/обычное
         shifta: Пометить всё как прочитанное
         v: Перейти к ссылке
-        s: Отметить как избранное/обычное
-        left: Предыдущая страница
-        right: Следующая страница
-        a: 
       title: Быстрые комбинации клавиш
     zen:
       archive: просмотреть все фиды
@@ -118,11 +119,16 @@ ru:
       rss: RSS
       subtitle: Добро пожаловать, друг.
       title: Stringer использует
+  starred:
+    next: Следующий
+    of: из
+    previous: Предыдущий
+    sorry: Извините, но у Вас нет избранных историй!
   stories:
     keep_unread: Пометить как непрочитанное
   time:
     formats:
-      default: ! '%b %d, %H:%M'
+      default: '%b %d, %H:%M'
   tutorial:
     add_feed: добавить фид
     as_read: как прочитанное
@@ -134,11 +140,6 @@ ru:
     simple: просто
     start: Начать читать
     subtitle: Вот руководство по эксплуатации.
-    title: ! 'Stringer это '
+    title: 'Stringer это '
     your_feeds: ваши фиды
     your_stories: Ваши истории
-  starred:
-    next: Следующий
-    of: из
-    previous: Предыдущий
-    sorry: Извините, но у Вас нет избранных историй!

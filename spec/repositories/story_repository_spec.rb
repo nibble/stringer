@@ -55,13 +55,13 @@ describe StoryRepository do
   end
 
   describe ".extract_content" do
-    let(:entry) do 
-      stub(url: "http://mdswanson.com",
+    let(:entry) do
+      double(url: "http://mdswanson.com",
            content: "Some test content<script></script>")
     end
 
     let(:summary_only) do
-      stub(url: "http://mdswanson.com",
+      double(url: "http://mdswanson.com",
            content: nil,
            summary: "Dumb publisher")
     end
@@ -78,8 +78,23 @@ describe StoryRepository do
   describe ".sanitize" do
     context "regressions" do
       it "handles <wbr> tag properly" do
-        result = StoryRepository.sanitize("<code>WM_<wbr>ERROR</code> asdf")
+        result = StoryRepository.sanitize("<code>WM_<wbr\t\n >ERROR</code> asdf")
         result.should eq "<code>WM_ERROR</code> asdf"
+      end
+
+      it "handles <figure> tag properly" do
+        result = StoryRepository.sanitize("<figure>some code</figure>")
+        result.should eq "<figure>some code</figure>"
+      end
+
+      it "handles unprintable characters" do
+        result = StoryRepository.sanitize("n\u2028\u2029")
+        result.should eq "n"
+      end
+
+      it "preserves line endings" do
+        result = StoryRepository.sanitize("test\r\ncase")
+        result.should eq "test\r\ncase"
       end
     end
   end

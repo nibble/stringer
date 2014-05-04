@@ -47,7 +47,7 @@ describe "FeedsController" do
   describe "POST /feeds" do
     context "when the feed url is valid" do
       let(:feed_url) { "http://example.com/" }
-      let(:valid_feed) { stub(valid?: true) }
+      let(:valid_feed) { double(valid?: true) }
 
       it "adds the feed and queues it to be fetched" do
         AddNewFeed.should_receive(:add).with(feed_url).and_return(valid_feed)
@@ -75,7 +75,7 @@ describe "FeedsController" do
 
     context "when the feed url is one we already subscribe to" do
       let(:feed_url) { "http://example.com/" }
-      let(:invalid_feed) { stub(valid?: false) }
+      let(:invalid_feed) { double(valid?: false) }
 
       it "adds the feed and queues it to be fetched" do
         AddNewFeed.should_receive(:add).with(feed_url).and_return(invalid_feed)
@@ -121,8 +121,8 @@ describe "FeedsController" do
       get "/feeds/export"
 
       last_response.body.should eq some_xml
-      last_response.header["Content-Type"].should include 'application/octet-stream'
-      last_response.header["Content-Disposition"].should == "attachment; filename=\"stringer.xml\""
+      last_response.header["Content-Type"].should include 'application/xml'
+      last_response.header["Content-Disposition"].should == "attachment; filename=\"stringer.opml\""
     end
   end
 end

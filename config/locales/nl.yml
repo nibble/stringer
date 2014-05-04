@@ -43,13 +43,13 @@ nl:
         password_confirmation: Bevestigen
       flash:
         passwords_dont_match: Hé, je wachtwoordbevestiging kwam niet overeen. Probeer het opnieuw.
-      subtitle: ! 'Er is maar één gebruiker: jij.'
+      subtitle: 'Er is maar één gebruiker: jij.'
       title: Stringer is
   flash:
-    cookies_required: ! 'Wel, dit is vervelend: deze applicatie heeft cookies nodig om goed te werken.'
-    js_required: ! 'Wel, dit is vervelend: deze applicatie heeft Javascript nodig om goed te werken.'
+    cookies_required: 'Wel, dit is vervelend: deze applicatie heeft cookies nodig om goed te werken.'
+    js_required: 'Wel, dit is vervelend: deze applicatie heeft Javascript nodig om goed te werken.'
   import:
-    description: ! '%{link} je feeds uit Google Reader en importeer ze.'
+    description: '%{link} je feeds uit Google Reader en importeer ze.'
     export: Exporteer
     fields:
       import: Importeren
@@ -60,6 +60,7 @@ nl:
     back_to_work: Aan het werk, luilak!
     export: Exporteren
     hey: Hé!
+    import: Importeren
     logout: Uitloggen
     support: Hulp
     title: stringer | jouw rss-buddy
@@ -69,8 +70,8 @@ nl:
       archived_stories: Gearchiveerde artikelen
       mark_all: Alles als gelezen markeren
       refresh: Vernieuwen
-      view_feeds: Feeds bekijken
       starred_stories: Artikelen met ster
+      view_feeds: Feeds bekijken
     feed:
       last_fetched:
         never: Nooit
@@ -87,18 +88,18 @@ nl:
       starred_stories: Artikelen met ster
     shortcuts:
       keys:
+        a: Een feed toevoegen
         jk: Volgend/vorig artikel
+        left: Vorige pagina
         m: Artikel markeren als gelezen/ongelezen
         np: Naar beneden/boven verplaaten
         oenter: Artikel open-/dichtklappen
         or: of
         r: Vernieuwen
+        right: Volgende pagina
+        s: Artikel markeren met ster/zonder ster
         shifta: Alles als gelezen markeren
         v: Open de URL van het artikel
-        s: Artikel markeren met ster/zonder ster
-        left: Vorige pagina
-        right: Volgende pagina
-        a: Een feed toevoegen
       title: Sneltoetsen
     zen:
       archive: alle artikelen bekijken
@@ -118,11 +119,16 @@ nl:
       rss: RSS
       subtitle: Welkom terug, vriend.
       title: Stringer spreekt
+  starred:
+    next: Volgende
+    of: van
+    previous: Vorige
+    sorry: Sorry, je hebt nog geen artikelen met ster!
   stories:
     keep_unread: Behouden als ongelezen
   time:
     formats:
-      default: ! '%d %b, %H:%M'
+      default: '%d %b, %H:%M'
   tutorial:
     add_feed: feeds toevoegen
     as_read: als gelezen markeren
@@ -134,11 +140,6 @@ nl:
     simple: simpel
     start: Je kunt beginnen met lezen
     subtitle: Hier is de handleiding.
-    title: ! 'Stringer is '
+    title: 'Stringer is '
     your_feeds: je feeds
     your_stories: je artikelen
-  starred:
-    next: Volgende
-    of: van
-    previous: Vorige
-    sorry: Sorry, je hebt nog geen artikelen met ster!
