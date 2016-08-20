@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'test'
+ENV["RACK_ENV"] = "test"
 
 require "rspec"
 require "rspec-html-matchers"
@@ -14,11 +14,13 @@ Coveralls.wear!
 require "factories/feed_factory"
 require "factories/story_factory"
 require "factories/user_factory"
+require "factories/group_factory"
 
 require "./app"
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.include RSpecHtmlMatchers
 end
 
 def app_require(file)
@@ -30,5 +32,5 @@ def app
 end
 
 def session
-  last_request.env['rack.session']
+  last_request.env["rack.session"]
 end

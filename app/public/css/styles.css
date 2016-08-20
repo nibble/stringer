@@ -15,10 +15,18 @@ hr {
   margin: 20px auto;
 }
 
+code {
+  white-space: normal;
+}
+
 .container {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /* Wrapper for page content to push down footer */
@@ -132,6 +140,10 @@ li.story.read {
   opacity: 0.5;
 }
 
+li.story.keepUnread .story-preview {
+  font-weight: bold;
+}
+
 li.story.open {
   opacity: 1.0;
 }
@@ -226,7 +238,7 @@ li.story.cursor {
   border: 3px solid #484948;
 }
 
-li.story .story-body-container { 
+li.story .story-body-container {
   display: none;
 }
 
@@ -362,6 +374,18 @@ li.feed .last-updated-time {
   display: inline-block;
 }
 
+li.feed .edit-feed {
+  cursor: pointer;
+}
+
+li.feed .edit-feed a {
+  text-align: right;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 5px;
+  color: #000;
+}
+
 li.feed .remove-feed {
   cursor: pointer;
 }
@@ -370,7 +394,7 @@ li.feed .remove-feed a {
   text-align: center;
   padding-left: 3px;
   padding-right: 3px;
-  margin-left: 10px;
+  margin-left: 5px;
   color: #C0392B;
 }
 
@@ -465,9 +489,17 @@ li.feed .remove-feed a:hover {
   transition: 0.25s;
 }
 
-.setup #password, .setup #password-confirmation, .setup #feed-url {
+.setup #password, .setup #password-confirmation, .setup #feed-url, .setup #feed-name, .setup input.select-dummy {
   padding-left: 100px;
   padding-right: 36px;
+}
+
+.setup select {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 5px;
+  width: 244px;
 }
 
 .setup .control-group {

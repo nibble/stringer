@@ -4,7 +4,7 @@ app_require "utils/opml_parser"
 
 describe OpmlParser do
   let(:parser) { OpmlParser.new }
-  
+
   describe "#parse_feeds" do
     it "it returns a hash of feed details from an OPML file" do
       result = parser.parse_feeds(<<-eos)
@@ -22,12 +22,14 @@ describe OpmlParser do
         </opml>
       eos
 
-      result.count.should eq 2
-      result.first[:name].should eq "a sample feed"
-      result.first[:url].should eq "http://feeds.feedburner.com/foobar"
-    
-      result.last[:name].should eq "Matt's Blog"
-      result.last[:url].should eq "http://mdswanson.com/atom.xml"
+      resulted_values = result.values.flatten
+      expect(resulted_values.size).to eq 2
+      expect(resulted_values.first[:name]).to eq "a sample feed"
+      expect(resulted_values.first[:url]).to eq "http://feeds.feedburner.com/foobar"
+
+      expect(resulted_values.last[:name]).to eq "Matt's Blog"
+      expect(resulted_values.last[:url]).to eq "http://mdswanson.com/atom.xml"
+      expect(result.keys.first).to eq "Ungrouped"
     end
 
     it "handles nested groups of feeds" do
@@ -45,10 +47,12 @@ describe OpmlParser do
         </body>
         </opml>
       eos
+      resulted_values = result.values.flatten
 
-      result.count.should eq 1
-      result.first[:name].should eq "a sample feed"
-      result.first[:url].should eq "http://feeds.feedburner.com/foobar"
+      expect(resulted_values.count).to eq 1
+      expect(resulted_values.first[:name]).to eq "a sample feed"
+      expect(resulted_values.first[:url]).to eq "http://feeds.feedburner.com/foobar"
+      expect(result.keys.first).to eq "Technology News"
     end
 
     it "doesn't explode when there are no feeds" do
@@ -63,7 +67,7 @@ describe OpmlParser do
         </opml>
       eos
 
-      result.should be_empty
+      expect(result).to be_empty
     end
 
     it "handles Feedly's exported OPML (missing :title)" do
@@ -79,9 +83,10 @@ describe OpmlParser do
         </body>
         </opml>
       eos
+      resulted_values = result.values.flatten
 
-      result.count.should eq 1
-      result.first[:name].should eq "a sample feed"
+      expect(resulted_values.count).to eq 1
+      expect(resulted_values.first[:name]).to eq "a sample feed"
     end
   end
 end

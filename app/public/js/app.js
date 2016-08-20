@@ -105,6 +105,9 @@ var StoryView = Backbone.View.extend({
     if (jsonModel.is_read) {
       this.$el.addClass('read');
     }
+    if (jsonModel.keep_unread) {
+      this.$el.addClass('keepUnread');
+    }
     return this;
   },
 
@@ -131,6 +134,7 @@ var StoryView = Backbone.View.extend({
   itemKeepUnread: function() {
     var icon = this.model.get("keep_unread") ? "icon-check" : "icon-check-empty";
     this.$(".story-keep-unread > i").attr("class", icon);
+    this.$el.toggleClass("keepUnread", this.model.get("keep_unread"));
   },
 
   itemStarred: function() {
@@ -140,8 +144,8 @@ var StoryView = Backbone.View.extend({
 
   storyClicked: function(e) {
     if (e.metaKey || e.ctrlKey || e.which == 2) {
-      var background_tab = window.open(this.model.get("permalink"));
-      background_tab.blur();
+      var backgroundTab = window.open(this.model.get("permalink"));
+      if (backgroundTab) backgroundTab.blur();
       window.focus();
       if (!this.model.get("keep_unread")) this.model.set("is_read", true);
       if (this.model.shouldSave()) this.model.save();
