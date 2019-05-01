@@ -1,16 +1,15 @@
 require_relative "../helpers/url_helpers"
 require_relative "../models/story"
+require_relative "../utils/content_sanitizer"
 require_relative "../utils/sample_story"
 
 class StoryRepository
   extend UrlHelpers
 
   def self.add(entry, feed)
-    entry.url = normalize_url(entry.url, feed.url)
-
     Story.create(feed: feed,
-                 title: sanitize(entry.title),
-                 permalink: entry.url,
+                 title: extract_title(entry),
+                 permalink: extract_url(entry, feed),
                  body: extract_content(entry),
                  is_read: false,
                  is_starred: false,
@@ -83,23 +82,32 @@ class StoryRepository
     Story.where(is_read: true).count
   end
 
+  def self.extract_url(entry, feed)
+    return entry.enclosure_url if entry.url.nil? && entry.respond_to?(:enclosure_url)
+
+    normalize_url(entry.url, feed.url) unless entry.url.nil?
+  end
+
   def self.extract_content(entry)
     sanitized_content = ""
 
     if entry.content
-      sanitized_content = sanitize(entry.content)
+      sanitized_content = ContentSanitizer.sanitize(entry.content)
     elsif entry.summary
-      sanitized_content = sanitize(entry.summary)
+      sanitized_content = ContentSanitizer.sanitize(entry.summary)
     end
 
-    expand_absolute_urls(sanitized_content, entry.url)
+    if entry.url.present?
+      expand_absolute_urls(sanitized_content, entry.url)
+    else
+      sanitized_content
+    end
   end
 
-  def self.sanitize(content)
-    Loofah.fragment(content.gsub(/<wbr\s*>/i, ""))
-          .scrub!(:prune)
-          .scrub!(:unprintable)
-          .to_s
+  def self.extract_title(entry)
+    return ContentSanitizer.sanitize(entry.title) if entry.title.present?
+    return ContentSanitizer.sanitize(entry.summary) if entry.summary.present?
+    "There isn't a title for this story"
   end
 
   def self.samples

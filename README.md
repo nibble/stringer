@@ -3,7 +3,6 @@
 [![Build Status](https://api.travis-ci.org/swanson/stringer.svg?style=flat)](https://travis-ci.org/swanson/stringer)
 [![Code Climate](https://codeclimate.com/github/swanson/stringer.svg?style=flat)](https://codeclimate.com/github/swanson/stringer)
 [![Coverage Status](https://coveralls.io/repos/swanson/stringer/badge.svg?style=flat)](https://coveralls.io/r/swanson/stringer)
-[![Dependency Status](https://gemnasium.com/swanson/stringer.svg)](https://gemnasium.com/swanson/stringer)
 
 ### A self-hosted, anti-social RSS reader.
 
@@ -24,7 +23,7 @@ Stringer is a Ruby (2.3.0+) app based on Sinatra, ActiveRecord, PostgreSQL, Back
 Stringer will run just fine on the Heroku free plan.
 
 Instructions are provided for deploying to [Heroku manually](/docs/Heroku.md), to any Ruby 
-compatible [Linux-based VPS](/docs/VPS.md), and to [OpenShift](/docs/OpenShift.md).
+compatible [Linux-based VPS](/docs/VPS.md), to [Docker](docs/docker.md) and to [OpenShift](/docs/OpenShift.md).
 
 ## Niceties
 
@@ -34,7 +33,7 @@ You can access the keyboard shortcuts when using the app by hitting `?`.
 
 ![](screenshots/keyboard_shortcuts.png)
 
-### Using you own domain with Heroku
+### Using your own domain with Heroku
 
 You can run Stringer at `http://reader.yourdomain.com` using a CNAME.
 
@@ -113,7 +112,7 @@ The application will be running on port `5000`.
 
 You can launch an interactive console (a la `rails c`) using `racksh`.
 
-## Acknowledgements
+## Acknowledgments
 
 Most of the heavy-lifting is done by [`feedjira`](https://github.com/feedjira/feedjira) and [`feedbag`](https://github.com/dwillis/feedbag).
 
@@ -125,7 +124,7 @@ Lato Font Copyright &copy; 2010-2011 by tyPoland Lukasz Dziedzic (team@latofonts
 
 ## Contact
 
-If you have a question, feature idea, or are running into problems, our preferred method of contact is to open an issue on GitHub. This allows multiple people to weigh in and we can keep everything in one place. Thanks!
+If you have a question, feature idea, or are running into problems, our preferred method of contact is to open an issue on GitHub. This allows multiple people to weigh in, and we can keep everything in one place. Thanks!
 
 ## Maintainers
 
